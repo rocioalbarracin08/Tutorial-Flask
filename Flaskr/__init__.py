@@ -1,6 +1,7 @@
 import os
 from flask import Flask
 
+# Contendrá la fábrica de la aplicación, y le dice a Python que el directorio flaskr debe ser tratado como un paquete.
 
 def create_app(test_config=None):
     # create and configure the app
@@ -29,3 +30,4 @@ def create_app(test_config=None):
         return 'Hello, World!'
 
     return app
+
