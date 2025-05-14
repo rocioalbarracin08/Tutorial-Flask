@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 
-# Contendrá la fábrica de la aplicación, y le dice a Python que el directorio flaskr debe ser tratado como un paquete.
+#Contendrá la fábrica de la aplicación, y le dice a Python que el directorio flaskr debe ser tratado como un paquete.
 
 def create_app(test_config=None):
     # create and configure the app
@@ -12,7 +12,7 @@ def create_app(test_config=None):
     )
 
     if test_config is None:
-        # load the instance config, if it exists, when not testing
+        # Cargue la configuración de la instancia, si existe, cuando no se esté probando
         app.config.from_pyfile('config.py', silent=True)
     else:
         # load the test config if passed in
@@ -28,6 +28,11 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return 'Hello, World!'
+    
+    from . import db
+    db.init_app(app)
 
     return app
 
+
+    
