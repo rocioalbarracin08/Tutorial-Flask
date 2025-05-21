@@ -1,6 +1,6 @@
 #-------------------EL BLUEPRINT----------------------
 
-# Lo que hace es llevar a la página inicial dónde se encuentran los botones de log in o registrarse (estas 2 se manejan con rutas) - Si me logue con mi cuenta ya registrada me vuelve mandar a la página inicial (pero esta vez ya logueada)
+# Lo que hace es llevar a la página inicial dónde se encuentran los botones de log in o registrarse (estas 2 se manejan con rutas) - Si me logue con mi cuenta ya registrada me vuelve mandar a la página inicial (pero esta vez ya logueada) - ORGANIZA LAS RUTAS
 
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for
