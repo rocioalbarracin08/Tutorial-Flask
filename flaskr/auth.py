@@ -69,11 +69,12 @@ def load_logged_in_user():
     user_id = session.get('user_id')
 
     if user_id is None:
-        g.user = None
+        g.user = None #Si esta en none es porque no esta logueado
     else:
-        g.user = get_db().execute(
-            'SELECT * FROM user WHERE id = ?', (user_id,)
-        ).fetchone()
+        g.user = get_db().execute( #Lo pongo en el objeto g
+            'SELECT * FROM user WHERE id = ?', (user_id,) #Lo busca en la base de datos
+            # No guarda en la sesión para que no haya problemas (puede cambiar el nom) - ventaja de usar id porque no cambia
+        ).fetchone() #9 renglones mezclando 3 cosas
 
 @bp.route('/logout')
 def logout():

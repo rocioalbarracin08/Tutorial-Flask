@@ -1,0 +1,53 @@
+<!--Ejercicio 1------------------------------------->
+<!doctype html>
+<title>Log In - Flaskr</title>
+<link rel="stylesheet" href="/static/style.css">
+<nav>
+  <h1>Flaskr</h1>
+  <ul>
+    <!--Colocamos las rutas originales-->
+    <li><a href="/auth/register">Register</a>
+    <li><a href="/auth/login">Log In</a>
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    <h1>Log In</h1>
+  </header>
+    <div class="flash">usuario incorrecto</div>
+  <form method="post">
+    <label for="username">Username</label>
+    <input name="username" id="username" required>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+    <input type="submit" value="Log In">
+  </form>
+</section>
+
+<!--Esto hace el renderTemplate de forma más simplificada
+- agarra plantillas, completa huecos y los devuelve-->
+
+<!--Ejercicio 2------------------------------------->
+<!doctype html>
+<title>Edit "{{ post['title'] }} - Flaskr</title> <!--Mejor si paso más cosas-->
+<link rel="stylesheet" href="/static/style.css">
+<nav>
+  <h1>Flaskr</h1>
+  <ul>
+    
+    <li><span>Juan</span> <!--Reemplazamos "{{ g.user['username'] }}"-->
+    <li><a href="/auth/logout ">Log Out</a> <!--Reemplazamos "{{ url_for('auth.logout') }}"-->
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
+
+<!--Cuando hay llaves es porque hay codigo-->
+
